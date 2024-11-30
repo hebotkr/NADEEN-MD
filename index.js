@@ -77,7 +77,7 @@ let up = `🚀 *_KRP BOT Connected Successfully!_* ✅
 
 *🔹 OWNER:* ${ownerNumber}
 
-*🔹 MADE BY:* Nadeen Poorna
+*🔹 MADE BY:* KAVIDU RASANGA´
 
 _Thank you for using_ *🕺KRP-MD💗.*
 _We're here to make your experience enjoyable and seamless._
