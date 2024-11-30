@@ -10,24 +10,24 @@ cmd({
 },
 async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 try{
-if(!q) return reply("Please give me a url or title")  
+if(!q) return reply("Please give me a url or title!")  
 const search = await yts(q)
 const data = search.videos[0];
 const url = data.url
     
     
 let desc = `
-⫷⦁[ * '-'_NADEEN-MD-MP3_DOWNLOADER_'-' * ]⦁⫸
+⫷⦁[ * '-'_KRP- MD -MP3_DOWNLOADER_'-' * ]⦁⫸
 
-🎵 *📼 NADEEN-MD MP3 DOWNLOADER . .⚙️*
-
-➥ *Title:* ${data.title} 
-➥ *Duration:* ${data.timestamp} 
-➥ *Views:* ${data.views} 
-➥ *Uploaded On:* ${data.ago} 
-➥ *Link:* ${data.url} 
-
-> *©𝗡𝗔𝗗𝗘𝗘𝗡-𝗠𝗗*
+🎵 * KRP-MD MP3 DOWNLOADER . .⚙️*
+┏━━━━━━━━━━━━━◉▷
+┃*Title:* ${data.title} 
+┃*Duration:* ${data.timestamp} 
+┃*Views:* ${data.views} 
+┃*Uploaded On:* ${data.ago} 
+┃*Link:* ${data.url} 
+┗━━━━━━━━━━━━━◉▷
+> *𝗞𝗥𝗣-𝗠𝗗*
 `
 
 await conn.sendMessage(from,{image:{url: data.thumbnail},caption:desc},{quoted:mek});
@@ -65,17 +65,17 @@ const url = data.url
     
     
 let desc = `
-⫷⦁[ * '-'_NADEEN-MD-MP4_DOWNLOADER_'-' * ]⦁⫸ 
+⫷⦁[ * '-'_KRP-MD-MP4_DOWNLOADER_'-' * ]⦁⫸ 
 
-🎥 *🎞 NADEEN-MD MP4 DOWNLOADER . .⚙️
-
-➥ *Title:* ${data.title} 
-➥ *Duration:* ${data.timestamp} 
-➥ *Views:* ${data.views} 
-➥ *Uploaded On:* ${data.ago} 
-➥ *Link:* ${data.url} 
-
-> *©𝗡𝗔𝗗𝗘𝗘𝗡-𝗠𝗗*
+🎥 *🎞 KRP-MD MP4 DOWNLOADER . .⚙️
+┏━━━━━━━━━━━━━━━━━━━━◉►
+┃ *Title:* ${data.title} 
+┃ *Duration:* ${data.timestamp} 
+┃ *Views:* ${data.views} 
+┃ *Uploaded On:* ${data.ago} 
+┃ *Link:* ${data.url} 
+┗━━━━━━━━━━━━━━━━━━━━◉►
+> *𝗞𝗥𝗣-𝗠𝗗*
 `
 
 await conn.sendMessage(from,{image:{url: data.thumbnail},caption:desc},{quoted:mek});
