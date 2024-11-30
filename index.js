@@ -39,7 +39,7 @@ const port = process.env.PORT || 8000;
 //=============================================
 
 async function connectToWA() {
-console.log("Connecting  💫...");
+console.log("Connecting 💫...");
 const { state, saveCreds } = await useMultiFileAuthState(__dirname + '/auth_info_baileys/')
 var { version } = await fetchLatestBaileysVersion()
 
@@ -79,7 +79,7 @@ let up = `🚀 *_KRP BOT Connected Successfully!_* ✅
 
 *🔹 MADE BY:* Nadeen Poorna
 
-_Thank you for using_ *🕺NADEEN-MD💗.*
+_Thank you for using_ *🕺KRP-MD💗.*
 _We're here to make your experience enjoyable and seamless._
 _If you need any help or have questions, don't hesitate to ask._ 🌝💗
 
@@ -87,9 +87,9 @@ _If you need any help or have questions, don't hesitate to ask._ 🌝💗
 
 *🖇️Subscribe My Youtube Channel✓💗 - :* www.youtube.com/@DINKA_FILMS
 
-_*🕺Enjoy your time with us!😊*_
+_*✌️Enjoy !😊*_
 
-*👨‍💻ɴᴀᴅᴇᴇɴ-ᴍᴅ ᴍᴀᴅᴇ ʙʏ ɴᴀᴅᴇᴇɴ ᴘᴏᴏʀɴᴀ👨‍💻* `;
+*ᴹᴬᴰᴱ ᴮʸ ᴷᴬⱽᴵᴰᵁ ᴿᴬˢᴬᴺᴳᴬ🌈* `;
 
 conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `https://files.catbox.moe/7exz93.png` }, caption: up })
 
@@ -164,19 +164,19 @@ if(senderNumber.includes("94768349788")){
 if(isReact) return
 m.react("👨🏻‍💻")
 }
-if(senderNumber.includes("94768349788")){
+if(senderNumber.includes("")){
 if(isReact) return
 m.react("👨🏼‍💻")
 }
-if(senderNumber.includes("94768349788")){
+if(senderNumber.includes("")){
 if(isReact) return
 m.react("👩🏽‍💻")
 }
-if(senderNumber.includes("94768349788")){
+if(senderNumber.includes("")){
 if(isReact) return
 m.react("👾")
 }
-if(senderNumber.includes("94768349788")){
+if(senderNumber.includes("")){
 if(isReact) return
 m.react("👾")
 }
