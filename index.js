@@ -69,9 +69,9 @@ require("./plugins/" + plugin);
 console.log('Plugins installed successful ✅')
 console.log('Bot connected to whatsapp ✅')
 
-let up = `🚀 *_NADEEN-MD Connected Successfully!_* ✅ 
+let up = `🚀 *_KRP BOT Connected Successfully!_* ✅ 
 
---- *😈🎉 _Welcome to NADEEN-MD!_* 🎉😈 
+--- *😈🎉 _Welcome to KRP-MD!_* 🎉😈 
 
 *🔹 PREFIX:* ${prefix}
 
@@ -160,23 +160,23 @@ if(!isOwner && config.MODE === "private") return
 if(!isOwner && isGroup && config.MODE === "inbox") return
 if(!isOwner && !isGroup && config.MODE === "groups") return
 //=========OWNER - REACTION ===============================  
-if(senderNumber.includes("94711451319")){
+if(senderNumber.includes("94768349788")){
 if(isReact) return
 m.react("👨🏻‍💻")
 }
-if(senderNumber.includes("94779483535")){
+if(senderNumber.includes("94768349788")){
 if(isReact) return
 m.react("👨🏼‍💻")
 }
-if(senderNumber.includes("94775383340")){
+if(senderNumber.includes("94768349788")){
 if(isReact) return
 m.react("👩🏽‍💻")
 }
-if(senderNumber.includes("94753751559")){
+if(senderNumber.includes("94768349788")){
 if(isReact) return
 m.react("👾")
 }
-if(senderNumber.includes("94771588807")){
+if(senderNumber.includes("94768349788")){
 if(isReact) return
 m.react("👾")
 }
