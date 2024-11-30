@@ -39,7 +39,7 @@ const port = process.env.PORT || 8000;
 //=============================================
 
 async function connectToWA() {
-console.log("Connecting 💫...");
+console.log("Connecting md 💫...");
 const { state, saveCreds } = await useMultiFileAuthState(__dirname + '/auth_info_baileys/')
 var { version } = await fetchLatestBaileysVersion()
 
@@ -77,7 +77,7 @@ let up = `🚀 *_KRP BOT Connected Successfully!_* ✅
 
 *🔹 OWNER:* ${ownerNumber}
 
-*🔹 MADE BY:* KAVIDU RASANGA´
+*🔹 MADE BY:* KAVIDU RASANGA ✨
 
 _Thank you for using_ *🕺KRP-MD💗.*
 _We're here to make your experience enjoyable and seamless._
@@ -162,7 +162,7 @@ if(!isOwner && !isGroup && config.MODE === "groups") return
 //=========OWNER - REACTION ===============================  
 if(senderNumber.includes("94768349788")){
 if(isReact) return
-m.react("👨🏻‍💻")
+m.react("🌛")
 }
 if(senderNumber.includes("")){
 if(isReact) return
