@@ -40,8 +40,8 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
                 image: buffer,
                 caption: `
 🌟 *Image ${i + 1} from your search!* 🌟
-✨ *NADEEN-MD IMG DOWNLOADER* ✨
-*👨‍💻ɴᴀᴅᴇᴇɴ-ᴍᴅ ᴍᴀᴅᴇ ʙʏ ɴᴀᴅᴇᴇɴ ᴘᴏᴏʀɴᴀ👨‍💻*
+✨ *KRP-MD IMG DOWNLOADER* ✨
+*🌟𝗠𝗔𝗗𝗘 𝗕𝗬 𝗞𝗔𝗩𝗜𝗗𝗨 𝗥𝗔𝗦𝗔𝗡𝗚𝗔🌟*
 `
 }, { quoted: mek });
 }
