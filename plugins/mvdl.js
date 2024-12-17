@@ -1,35 +1,222 @@
-const { fetchJson } = require('../lib/functions')
+//THIS PLUGIN BY Darksadas YT
 const config = require('../config')
 const { cmd, commands } = require('../command')
-
-// FETCH API URL
-let baseUrl;
-(async () => {
-    let baseUrlGet = await fetchJson(`https://raw.githubusercontent.com/prabathLK/PUBLIC-URL-HOST-DB/main/public/url.json`)
-    baseUrl = baseUrlGet.api
-})();
-
-
-const yourName = "❗මෙය වෙබ් පිටපතක් වන අතර,සිංහල උපසිරැසි වෙනම එකතු කරගැනීමට *සිංහල උපසිරැසි* Button එක click කරන්න.\n\n> *©ᴘᴏᴡᴇʀᴇᴅ ʙʏ ɴᴀᴅᴇᴇɴ ᴘᴏᴏʀɴᴀ*\n\n 🎬*ɴᴀᴅᴇᴇɴ ᴍᴅ ᴄɪɴᴇʀᴜ.ʟᴋ ᴍᴏᴠɪᴇ ᴅᴏᴡɴʟᴏᴀᴅᴇʀ*🎬​";
+const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson} = require('../lib/functions')
 
 
 cmd({
-    pattern: "mvdl",
-    alias: ["cinerulk"],
-    desc: "download cinerulk movie ",
-    category: "download",
-    react: "🎬",
+    pattern: "movie",
+    alias: ["movi","tests"],
+    use: '.movie <query>',
+    react: "🔎",
+    desc: "Moive downloader",
+    category: "movie",
+    filename: __filename
+
+},
+
+async(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+try{
+
+let sadas = await fetchJson(`https://darksadas-yt-sinhalasub-search.vercel.app/?q=${q}`)
+const msg = `*🎥 MOVIE SEARCH 🎥*`
+
+if (sadas.data.length < 1) return await conn.sendMessage(from, { text: "🚩 *I couldn't find anything :(*" }, { quoted: mek } )
+
+  var rows = [];  
+  sadas.data.map((v) => {
+	rows.push({
+        buttonId: `.infodl ${v.Link}`,
+        buttonText: { displayText: `${v.Title}` },
+        type: 1
+          });
+        })
+
+const buttonMessage = {
+ 
+image: {url: config.LOGO},	
+  caption: msg,
+  footer: config.FOOTER,
+  buttons: rows,
+  headerType: 4
+}
+return await conn.buttonMessage(from, buttonMessage, mek)
+} catch (e) {
+    console.log(e)
+  await conn.sendMessage(from, { text: '🚩 *Error !!*' }, { quoted: mek } )
+}
+})
+
+
+cmd({
+    pattern: "infodl",
+    alias: ["mdv"],
+    use: '.moviedl <url>',
+    react: "🎥",
+    desc: "download movies from sinhalasub.lk",
+    //category: "search",
+    filename: __filename
+
+},
+
+async(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, isGroup, prefix, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
+try{
+if (!q) return reply('🚩 *Please give me a url*')
+
+let sadas = await fetchJson(`https://darksadas-yt-sinhalasub-info-dl.vercel.app/?url=${q}`)
+
+	
+
+if (sadas.length < 1) return await conn.sendMessage(from, { text: "🚩 *I couldn't find anything :(*" }, { quoted: mek } )
+
+ var rows = [];  	
+	
+	rows.push({
+      buttonId: prefix + 'daqt ' + q, buttonText: {displayText: 'Details send'}, type: 1}
+
+	  
+	  
+);
+  
+  sadas.downloadLinks.map((v) => {
+	rows.push({
+        buttonId: prefix + `mn ${v.link}±${sadas.title} - ${v.quality} - ${v.size}`,
+        buttonText: { displayText: `${v.size} - ${v.quality}` },
+        type: 1
+          },
+		 
+	//{buttonId: prefix + 'detailss ' + q, buttonText: {displayText: 'Details send'}, type: 1}	 
+		 
+		 
+		 
+		 
+		 );
+        })
+ const msg = `   *🎥  MOVIE DOWNLODER 🎥*
+ 
+* Tιтle   : ${sadas.title}*
+
+* Rᴇʟᴇᴀꜱᴇ ➜* _${sadas.date}_
+* Rᴀᴛɪɴɢ ➜* _${sadas.rating}_
+* Rᴜɴᴛɪᴍᴇ ➜* _${sadas.duration}_
+* Dɪʀᴇᴄᴛᴏʀ ➜* _${sadas.author}_
+* Cᴏᴜɴᴛʀʏ ➜* _${sadas.country}_ 
+
+
+`
+const buttonMessage = {
+ 
+image: {url: sadas.images[0] || images},	
+  caption: msg,
+  footer: config.FOOTER,
+  buttons: rows,
+  headerType: 4
+}
+return await conn.buttonMessage(from, buttonMessage, mek)
+} catch (e) {
+    console.log(e)
+  await conn.sendMessage(from, { text: '🚩 *Error !!*' }, { quoted: mek } )
+}
+})
+
+
+cmd({
+    pattern: "mn",
+    react: "🎥",
+    alias: ["online", "test", "bot"],
+    desc: "Check bot online or no.",
+    //category: "other",
+    use: '.alive',
     filename: __filename
 },
-async(conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
+async (conn, mek, m, {
+    from,
+    prefix,
+    q,
+    pushname,
+    reply
+}) => {
     try {
-        if (!q && !q.startsWith("https://")) return reply("*⚠Films Download කර ගැනීම සදහා cineru.lk වෙත පිවිස,*.\nෆිල්ම් එක තෝරා\n*HC VIDEO COPY හෝ VIDEO COPY CLICK කර,Google drive[GDRIVE] ලින්ක් ලබා දෙන්න ✅\n\n> contact Owner - 0768349788 ")
-        //fetch data from api  
-        let data = await fetchJson(`${baseUrl}/api/gdrivedl?url=${q}`)
-        reply("🎬*ɴᴀᴅᴇᴇɴ ᴍᴅ ᴄɪɴᴇʀᴜ.ʟᴋ ᴍᴏᴠɪᴇ ᴅᴏᴡɴʟᴏᴀᴅᴇʀ*🎬​ \n*--------------------------------------------*\n𝕐𝕆𝕌ℝ 𝕄𝕆𝕍𝕀𝔼 𝕀𝕊\n*📤𝕌ℙ𝕃𝕆𝔸𝔻𝕀ℕ𝔾 ◽◽◽◽◽◽*\n\n> *ɴᴀᴅᴇᴇɴ-ᴍᴅ ʙʏ ɴᴀᴅᴇᴇɴ ᴘᴏᴏʀɴᴀ*")
-        await conn.sendMessage(from, { document: { url: data.data.download }, fileName: data.data.fileName, mimetype: data.data.mimeType, caption: `🍟Movie Name : ${data.data.fileName} | සිංහල උපසිරැසි ඇතුළත් කර නැත.\n🍫Bot Owner : 94768349788 \n\n${yourName}` }, { quoted: mek })                                                                                                                 
-    } catch (e) {
-        console.log(e)
-        reply(`${e}`)
+
+        if(!q) return await reply('please give me text !..')
+
+
+const datae = q.split("±")[0]
+const datas = q.split("±")[1]
+
+      let sadas = await fetchJson(`https://darksadas-yt-sinhalasub-dl.vercel.app/?url=${datae}`)    
+  
+	    const da = sadas.downloadLink.split("https://pixeldrain.com/u/")[1]
+const fhd = `https://pixeldrain.com/api/file/${da}`
+
+let mfg = `*DOWNLOAD MOVIE*
+`
+ const buttons = [
+        {buttonId:`${prefix}fit ${fhd}±${datas}` , buttonText: {displayText: `Download Now`}, type: 1}
+        
+      ]
+        const buttonMessage = {
+		image: {url: 'https://telegra.ph/file/091fc81528af5881cdf47.jpg'},	
+            caption: mfg,
+            footer: config.FOOTER,
+            buttons: buttons,
+            headerType: 1
+        }
+       await conn.buttonMessage(from, buttonMessage, mek)
+       } catch (e) {
+            console.log(e)
+            reply('*Error !!*')
+        }
+    })
+
+
+
+
+
+
+cmd({
+    pattern: "fit",
+    react: "📥",
+    dontAddCommandList: true,
+    filename: __filename
+}, async (conn, mek, m, { from, q, isMe, reply }) => {
+	
+    if (!q) {
+        return await reply('*Please provide a direct URL!*');
     }
-})
+  const data = q.split("±")[0]
+        const datas = q.split("±")[1]
+
+
+
+    try {
+ 
+		
+
+
+
+        const mediaUrl = data.trim();
+
+        const response = await axios.get(mediaUrl, { responseType: 'arraybuffer' });
+        const mediaBuffer = Buffer.from(response.data, 'binary');
+
+
+
+
+        const message = {
+            document: mediaBuffer,
+	    caption: `${datas}
+     
+ *Darksadas YT*`,
+            mimetype: "video/mp4",
+            fileName: `${datas}🎬DARK SHUTER🎬.mp4`,
+        };
+
+        await conn.sendMessage(config.JID, message);
+
+        await conn.sendMessage(from, { react: { text: '✔️', key: mek.key } });
+    } catch (error) {
+        console.error('Error fetching or sending', error);
+        await conn.sendMessage(from, '*Error fetching or sending *', { quoted: mek });
+    }
+});
